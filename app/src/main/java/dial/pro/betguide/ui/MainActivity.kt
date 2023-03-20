@@ -1,7 +1,8 @@
-package dial.pro.betguide
+package dial.pro.betguide.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import dial.pro.betguide.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
