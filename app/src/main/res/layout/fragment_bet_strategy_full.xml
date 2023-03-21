@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".ui.betStrategyFull.BetStrategyFullFragment">
+
+    <TextView
+        android:id="@+id/tw_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:textColor="@color/black"
+        android:textStyle="normal"
+        android:textSize="18sp"
+        android:padding="16dp"
+        android:textAlignment="textStart"
+        tools:text="@tools:sample/lorem/random" />
+
+</androidx.core.widget.NestedScrollView>
