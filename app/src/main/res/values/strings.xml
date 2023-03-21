@@ -5,5 +5,8 @@
     <string name="bet_types">Виды ставок</string>
     <string name="faq">FAQ</string>
     <string name="loading_error">Ошибка загруки</string>
-    <string name="strategy_key">strategy_key</string>
+
+    <!--  Params keys   -->
+    <string name="html_text_key">html_text_key</string>
+    <string name="retry">Повторить</string>
 </resources>

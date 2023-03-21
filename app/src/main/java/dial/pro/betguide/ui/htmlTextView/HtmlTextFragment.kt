@@ -1,4 +1,4 @@
-package dial.pro.betguide.ui.betStrategyFull
+package dial.pro.betguide.ui.htmlTextView
 
 import android.os.Build
 import android.os.Bundle
@@ -7,24 +7,28 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
 import dial.pro.betguide.R
-import dial.pro.betguide.databinding.FragmentBetStrategyFullBinding
+import dial.pro.betguide.databinding.FragmentHtmlTextBinding
 
 
-class BetStrategyFullFragment : Fragment() {
+class HtmlTextFragment : Fragment() {
 
-    private var strategyText: String = ""
+    private val glide by lazy {
+        Glide.with(this)
+    }
 
+    private var text: String = ""
 
-    private var _binding: FragmentBetStrategyFullBinding? = null
+    private var _binding: FragmentHtmlTextBinding? = null
     private val binding get() = _binding!!
-
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         arguments?.let {
-            strategyText = it.getString(getString(R.string.strategy_key), "Null")
+            text = it.getString(getString(R.string.html_text_key), "Null")
         }
     }
 
@@ -33,17 +37,20 @@ class BetStrategyFullFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBetStrategyFullBinding.inflate(inflater)
+        _binding = FragmentHtmlTextBinding.inflate(inflater)
 
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val imageGetter = HtmlImageGetter(lifecycleScope, resources, glide, binding.twText)
+
         binding.twText.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Html.fromHtml(strategyText, Html.FROM_HTML_MODE_LEGACY)
+            Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY, imageGetter, null)
         } else {
-            Html.fromHtml(strategyText)
+            Html.fromHtml(text)
         }
+
         super.onViewCreated(view, savedInstanceState)
     }
 

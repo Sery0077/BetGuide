@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    tools:context=".ui.betStrategyFull.BetStrategyFullFragment">
+    tools:context=".ui.htmlTextView.HtmlTextFragment">
 
     <TextView
         android:id="@+id/tw_text"

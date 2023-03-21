@@ -1,4 +1,4 @@
-package dial.pro.betguide.ui.betStrategy
+package dial.pro.betguide.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,9 +9,9 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import dial.pro.betguide.R
 
-class BetStrategyRecyclerAdapter(private val itemClickListener: BetStrategyItemListener) :
+class BetStrategyRecyclerAdapter(private val itemClickListener: BetItemClickListener) :
     ListAdapter<String, BetStrategyRecyclerAdapter.BetStrategyVH>(
-        BetStrategyDiffCallback
+        BetDiffCallback
     ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BetStrategyVH {
@@ -37,7 +37,7 @@ class BetStrategyRecyclerAdapter(private val itemClickListener: BetStrategyItemL
     }
 }
 
-object BetStrategyDiffCallback : DiffUtil.ItemCallback<String>() {
+object BetDiffCallback : DiffUtil.ItemCallback<String>() {
     override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem === newItem
     }

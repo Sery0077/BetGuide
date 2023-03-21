@@ -11,8 +11,10 @@ import com.google.android.material.snackbar.Snackbar
 import dial.pro.betguide.R
 import dial.pro.betguide.databinding.FragmentBetStrategyBinding
 import dial.pro.betguide.model.DataResult
+import dial.pro.betguide.ui.adapter.BetItemClickListener
+import dial.pro.betguide.ui.adapter.BetStrategyRecyclerAdapter
 
-class BetStrategyFragment : Fragment(), BetStrategyItemListener {
+class BetStrategyFragment : Fragment(), BetItemClickListener {
 
     companion object {
         fun newInstance() = BetStrategyFragment()
@@ -50,7 +52,7 @@ class BetStrategyFragment : Fragment(), BetStrategyItemListener {
                         getString(R.string.loading_error),
                         Snackbar.LENGTH_INDEFINITE
                     )
-                        .setAction("Retry") {
+                        .setAction(getString(R.string.retry)) {
                             viewModel.getStrategy()
                         }
                         .show()
@@ -70,10 +72,12 @@ class BetStrategyFragment : Fragment(), BetStrategyItemListener {
 
     override fun onItemClick(key: String) {
         val strategyText = viewModel.strategyMap.value?.data?.strategy?.get(key) ?: throw NullPointerException("Key is null")
+
         val args = Bundle().apply {
-            putString(getString(R.string.strategy_key), strategyText)
+            putString(getString(R.string.html_text_key), strategyText)
         }
-        findNavController().navigate(R.id.action_betStrategyFragment_to_betStrategyFullFragment, args = args)
+
+        findNavController().navigate(R.id.action_betStrategyFragment_to_htmlTextFragment, args = args)
     }
 
     override fun onDestroyView() {

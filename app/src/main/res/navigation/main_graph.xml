@@ -22,8 +22,8 @@
         android:label="fragment_bet_strategy"
         tools:layout="@layout/fragment_bet_strategy" >
         <action
-            android:id="@+id/action_betStrategyFragment_to_betStrategyFullFragment"
-            app:destination="@id/betStrategyFullFragment" />
+            android:id="@+id/action_betStrategyFragment_to_htmlTextFragment"
+            app:destination="@id/htmlTextFragment" />
     </fragment>
     <fragment
         android:id="@+id/betTypesFragment"
@@ -51,12 +51,12 @@
             app:destination="@id/betTypesFragment" />
     </fragment>
     <fragment
-        android:id="@+id/betStrategyFullFragment"
-        android:name="dial.pro.betguide.ui.betStrategyFull.BetStrategyFullFragment"
-        android:label="fragment_bet_strategy_full"
-        tools:layout="@layout/fragment_bet_strategy_full">
+        android:id="@+id/htmlTextFragment"
+        android:name="dial.pro.betguide.ui.htmlTextView.HtmlTextFragment"
+        android:label="fragment_html_text"
+        tools:layout="@layout/fragment_html_text">
         <argument
-            android:name="@string/strategy_key"
+            android:name="@string/html_text_key"
             app:argType="string"
             android:defaultValue="Null" />
     </fragment>
