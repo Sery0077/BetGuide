@@ -20,7 +20,7 @@
         android:id="@+id/betStrategyFragment"
         android:name="dial.pro.betguide.ui.betStrategy.BetStrategyFragment"
         android:label="fragment_bet_strategy"
-        tools:layout="@layout/fragment_bet_strategy" >
+        tools:layout="@layout/fragment_recycler" >
         <action
             android:id="@+id/action_betStrategyFragment_to_htmlTextFragment"
             app:destination="@id/htmlTextFragment" />
@@ -29,7 +29,11 @@
         android:id="@+id/betTypesFragment"
         android:name="dial.pro.betguide.ui.betTypes.BetTypesFragment"
         android:label="fragment_bet_types"
-        tools:layout="@layout/fragment_bet_types" />
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/action_betTypesFragment_to_htmlTextFragment"
+            app:destination="@id/htmlTextFragment" />
+    </fragment>
     <fragment
         android:id="@+id/faqFragment"
         android:name="dial.pro.betguide.ui.faq.FaqFragment"

@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import dial.pro.betguide.R
-import dial.pro.betguide.databinding.FragmentBetStrategyBinding
+import dial.pro.betguide.databinding.FragmentRecyclerBinding
 import dial.pro.betguide.model.DataResult
 import dial.pro.betguide.ui.adapter.BetItemClickListener
 import dial.pro.betguide.ui.adapter.BetStrategyRecyclerAdapter
@@ -22,7 +22,7 @@ class BetStrategyFragment : Fragment(), BetItemClickListener {
 
     private val viewModel: BetStrategyViewModel by viewModels()
 
-    private var _binding: FragmentBetStrategyBinding? = null
+    private var _binding: FragmentRecyclerBinding? = null
     private val binding get() = _binding!!
 
     private val adapter = BetStrategyRecyclerAdapter(this)
@@ -31,7 +31,7 @@ class BetStrategyFragment : Fragment(), BetItemClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentBetStrategyBinding.inflate(inflater)
+        _binding = FragmentRecyclerBinding.inflate(inflater)
 
         return binding.root
     }
