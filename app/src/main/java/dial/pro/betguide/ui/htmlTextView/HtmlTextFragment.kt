@@ -45,11 +45,7 @@ class HtmlTextFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val imageGetter = HtmlImageGetter(lifecycleScope, resources, glide, binding.twText)
 
-        binding.twText.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY, imageGetter, null)
-        } else {
-            Html.fromHtml(text)
-        }
+        binding.twText.text = Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY, imageGetter, null)
 
         super.onViewCreated(view, savedInstanceState)
     }

@@ -44,11 +44,7 @@ class FaqFragment : Fragment() {
                 SUCCESS -> {
                     val text = it.data?.text
 
-                    binding.twText.text = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                        Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
-                    } else {
-                        Html.fromHtml(text)
-                    }
+                    binding.twText.text = Html.fromHtml(text, Html.FROM_HTML_MODE_LEGACY)
 
                     binding.progressBar.visibility = View.GONE
                     binding.twText.visibility = View.VISIBLE
