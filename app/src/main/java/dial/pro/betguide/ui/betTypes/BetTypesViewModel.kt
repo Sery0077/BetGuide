@@ -4,7 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dial.pro.betguide.data.repository.BetTypesRepository
+import dial.pro.betguide.data.NetworkModule
+import dial.pro.betguide.data.Repository
 import dial.pro.betguide.model.BetTypesItem
 import dial.pro.betguide.model.DataResult
 import kotlinx.coroutines.launch
@@ -15,15 +16,15 @@ class BetTypesViewModel : ViewModel() {
     val strategyMap: LiveData<DataResult<BetTypesItem>>
         get() = _typesMap
 
-    private val repository = BetTypesRepository()
-
     init {
         getTypes()
     }
 
     fun getTypes() {
         viewModelScope.launch {
-            repository.getBetTypes().collect() {
+            Repository.performRequest {
+                NetworkModule.apiService.getBetTypesList()
+            }.collect() {
                 _typesMap.value = it
             }
         }

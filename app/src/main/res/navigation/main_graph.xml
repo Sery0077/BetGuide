@@ -38,7 +38,7 @@
         android:id="@+id/faqFragment"
         android:name="dial.pro.betguide.ui.faq.FaqFragment"
         android:label="fragment_faq"
-        tools:layout="@layout/fragment_faq" />
+        tools:layout="@layout/fragment_html_text" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="dial.pro.betguide.ui.main.MainFragment"
