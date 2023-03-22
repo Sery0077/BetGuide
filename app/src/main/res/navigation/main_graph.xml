@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="dial.pro.betguide.ui.splash.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@id/main_graph"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/betStrategyFragment"
+        android:name="dial.pro.betguide.ui.betStrategy.BetStrategyFragment"
+        android:label="fragment_bet_strategy"
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/action_betStrategyFragment_to_htmlTextFragment"
+            app:destination="@id/htmlTextFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/betTypesFragment"
+        android:name="dial.pro.betguide.ui.betTypes.BetTypesFragment"
+        android:label="fragment_bet_types"
+        tools:layout="@layout/fragment_recycler" >
+        <action
+            android:id="@+id/action_betTypesFragment_to_htmlTextFragment"
+            app:destination="@id/htmlTextFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/faqFragment"
+        android:name="dial.pro.betguide.ui.faq.FaqFragment"
+        android:label="fragment_faq"
+        tools:layout="@layout/fragment_html_text" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="dial.pro.betguide.ui.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_faqFragment"
+            app:destination="@id/faqFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_betStrategyFragment"
+            app:destination="@id/betStrategyFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_betTypesFragment"
+            app:destination="@id/betTypesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/htmlTextFragment"
+        android:name="dial.pro.betguide.ui.htmlTextView.HtmlTextFragment"
+        android:label="fragment_html_text"
+        tools:layout="@layout/fragment_html_text">
+        <argument
+            android:name="@string/html_text_key"
+            app:argType="string"
+            android:defaultValue="Null" />
+    </fragment>
+</navigation>
